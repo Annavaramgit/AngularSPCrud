@@ -1,34 +1,38 @@
 <div class="container">
   <div class="card p-4 mt-3">
-    <form>
+
+    <form #regForm="ngForm" (ngSubmit)="savestudent(regForm)">
+      <!-- student name -->
       <mat-form-field appearance="outline" class="mb-0">
         <mat-label>Name</mat-label>
-        <input matInput placeholder="Enter Name" name="stuentName">
+        <input matInput placeholder="Enter Name" name="stuentName" [(ngModel)]="student.stuentName">
         <mat-icon matSuffix>person</mat-icon>
 
       </mat-form-field>
 
+      <!-- hallticket number -->
       <mat-form-field appearance="outline">
         <mat-label>StudentHallticket</mat-label>
-        <input matInput placeholder="Enter HallTicketNumber" name="studentHallTicket">
+        <input matInput placeholder="Enter HallTicketNumber" name="studentHallTicket"
+          [(ngModel)]="student.studentHallTicket">
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-
       </mat-form-field>
 
+      <!-- college name -->
       <mat-form-field appearance="outline">
         <mat-label>College Name</mat-label>
-        <input matInput placeholder="Enter College Name" name="collegeName">
+        <input matInput placeholder="Enter College Name" name="collegeName" [(ngModel)]="student.collegeName">
         <mat-icon matSuffix>school</mat-icon>
 
       </mat-form-field>
 
-      <!-- selecting -->
+      <!-- selecting state (  drop down)-->
       <mat-form-field>
         <mat-label>State</mat-label>
-        <mat-select>
-          <mat-option value="option1">Andhra Pradesh</mat-option>
-          <mat-option value="option2">Telangana </mat-option>
-          <mat-option value="option3">Karnataka</mat-option>
+        <mat-select name="state" [(ngModel)]="student.state">
+          <mat-option value="AndhraPradesh">AndhraPradesh</mat-option>
+          <mat-option value="Telangana">Telangana </mat-option>
+          <mat-option value="Karnataka">Karnataka</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -36,18 +40,18 @@
       <div>
         <label for="">Gender</label>
         <mat-radio-group aria-label="Select an option">
-          <mat-radio-button value="1">Male</mat-radio-button>
-          <mat-radio-button value="2">FeMale</mat-radio-button>
+          <mat-radio-button value="Male" (click)="slectGender('Male')"[checked]="checkGender('Male')">Male</mat-radio-button>
+          <mat-radio-button value="FeMale" (click)="slectGender('FeMale')"[checked]="checkGender('FeMale')">FeMale</mat-radio-button>
         </mat-radio-group>
       </div>
 
       <!-- check boxes for skills -->
       <div>
-        <label for="">Skills</label>
-        <section class="example-section">
-          <mat-checkbox class="example-margin">Angular</mat-checkbox>
-          <mat-checkbox class="example-margin">Java</mat-checkbox>
-          <mat-checkbox class="example-margin">SpringBoot</mat-checkbox>
+        <label for="" class="mt-3">Skills</label>
+        <section class="example-section mb-3">
+          <mat-checkbox class="example-margin" value="AngularJs" (change)="selectskill($event)" [checked]="checkSkill('AngularJs')">AngularJs</mat-checkbox>
+          <mat-checkbox class="example-margin" value="Java" (change)="selectskill($event)"[checked]="checkSkill('Java')">Java</mat-checkbox>
+          <mat-checkbox class="example-margin" value="ReactJs" (change)="selectskill($event)"[checked]="checkSkill('ReactJs')">ReactJs</mat-checkbox>
         </section>
       </div>
       <mat-divider></mat-divider>
