@@ -20,6 +20,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { StudentListComponent } from './student-list/student-list.component';
 
 
 
@@ -28,7 +29,8 @@ import { MatButtonModule } from '@angular/material/button';
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    StudentListComponent
 
   ],
   imports: [

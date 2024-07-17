@@ -55,11 +55,12 @@ export class RegisterComponent implements OnInit {
         }
       )
     }
+    //assining skill array in the student skill
     this.student.skills = this.skill;
     console.log("skills selected: "+this.student.skills)
   }
 
-  /* after form submisio this method will call,
+  /* after form submission this method will call,
     this method calls service class method(savestudent()),
     sends what ever data user enter to backend api
   */
@@ -71,8 +72,8 @@ export class RegisterComponent implements OnInit {
         next:(response :Student)=>{
           console.log(response);
           regForm.reset();
-          this.student.gender='';
-          this.student.skills=[];
+         this.student.gender='';
+         this.student.skills=[];
 
         },
         //call back for error response
