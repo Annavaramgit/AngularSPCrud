@@ -22,4 +22,13 @@ export class Service1Service {
     return this.http.get<Student[]>(`${this.url}/getAll`);
   }
 
+  /* delete the student record*/
+  public deleteStudent(studentId:number){
+    return this.http.delete(`${this.url}/delete/${studentId}`);
+  }
+  /*get student specifically */ 
+  public getSpecificStudent(studentId:number):Observable<Student>{
+    return this.http.get<Student>(`${this.url}/getSpecific/${studentId}`)
+  }
+
 }

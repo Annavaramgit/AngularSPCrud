@@ -21,6 +21,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
 import { StudentListComponent } from './student-list/student-list.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -38,7 +39,7 @@ import { StudentListComponent } from './student-list/student-list.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-   HttpClientModule,
+    HttpClientModule,
 
     MatToolbarModule,
     MatGridListModule,
@@ -49,7 +50,8 @@ import { StudentListComponent } from './student-list/student-list.component';
     MatRadioModule,
     MatCheckboxModule,
     MatDividerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,13 +1,21 @@
 <div class="container">
 
   <!-- for all studentlist -->
-  <div align="right" class="mt-1">
+  <div align ="right" class="mt-1"> <!-- margintop = mt means-->
     <button mat-raised-button color="accent" routerLink="/studentList">StudentList</button>
   </div>
 
   <div class="card p-3 mt-1">
 
     <form #regForm="ngForm" (ngSubmit)="savestudent(regForm)">
+       <!-- student name -->
+      <mat-form-field appearance="outline" class="mb-0">
+        <mat-label>Id</mat-label>
+        <input matInput  disabled ="Enter id" name="id" [(ngModel)]="student.id">
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+
       <!-- student name -->
       <mat-form-field appearance="outline" class="mb-0">
         <mat-label>Name</mat-label>
@@ -67,9 +75,10 @@
 
       <!-- buttons -->
       <div class="text-center m-0"> <!-- text-center is bootstrap class for put center-->
-        <button mat-raised-button color="accent" class="m-3">Clear</button>
-        <button mat-raised-button color="primary" class="m-3">Submit</button>
+        <button  type="button" (click)="clearForm(regForm)" mat-raised-button color="accent" class="m-1" >Clear</button>
+        <button type="submit" color="primary" mat-raised-button class="m-1">Submit</button>
       </div>
+      
     </form>
   </div>
 

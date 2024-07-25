@@ -1,1 +1,80 @@
-<p>student-list works!</p>
+<div class="container">
+  <div class="mt-1">
+    <button mat-raised-button routerLink="/register" color="accent">Home</button>
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8  mt-1">
+
+
+
+    <!-- id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> Id </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <!-- Name  -->
+    <ng-container matColumnDef="stuentName">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.stuentName}} </td>
+    </ng-container>
+
+    <!-- HallTicket -->
+    <ng-container matColumnDef="studentHallTicket">
+      <th mat-header-cell *matHeaderCellDef> HallTicketNumber </th>
+      <td mat-cell *matCellDef="let element"> {{element.studentHallTicket}} </td>
+    </ng-container>
+
+    <!-- Collegename Column -->
+    <ng-container matColumnDef="collegeName">
+      <th mat-header-cell *matHeaderCellDef> College </th>
+      <td mat-cell *matCellDef="let element"> {{element.collegeName}} </td>
+    </ng-container>
+
+
+
+    <!-- State Column -->
+    <ng-container matColumnDef="state">
+      <th mat-header-cell *matHeaderCellDef> State </th>
+      <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+    </ng-container>
+
+    <!-- Skills Column -->
+    <ng-container matColumnDef="skills">
+      <th mat-header-cell *matHeaderCellDef> Skills </th>
+      <td mat-cell *matCellDef="let element"> {{element.skills}} </td>
+    </ng-container>
+
+    <!-- Gender Column -->
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef> Gender </th>
+      <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+    </ng-container>
+
+    <!-- Edit Column -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button aria-label="Example icon button with a open in new tab icon" color="primary"
+          (click)="editStudent(element.id)">
+          <mat-icon>edit_note</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+
+    <!-- delete Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button aria-label="Example icon button with a open in new tab icon" color="warn"
+          (click)="deleteStudent(element.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>
